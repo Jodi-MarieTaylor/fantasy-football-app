@@ -1,0 +1,45 @@
+{%extends "webapp/header.html" %}
+ {% block content %}
+
+ <form action= "/team/player/substitute/in" method="post">
+    <input type=hidden name =user_id value = {{user_id}}>
+      <input type=hidden name =subplayerid value = {{subplayerid}}>
+    {% csrf_token %}
+    <div  style="margin: 0 auto;">
+   
+          <p>Bench Players</p>
+              {% csrf_token %}
+          <table class="table" >
+             <thead>
+              <tr>
+                <th>Position</th>
+                <th>Name</th>
+             
+              </tr>
+            </thead>
+            <tbody>
+                 {% for player in benchplayers_list %}
+                 <tr>
+                   <td scope="row">{{ player.position }}</td>
+                   <td>{{player.name}}</td>
+                   <td>
+                        <div class="radio">
+                           <label><input type="radio" name="player_id" value = "{{player.id}}"></label>
+                       </div>
+                  </td>
+                 </tr>
+                 {% endfor %}
+              </tbody>
+
+             
+          </table>
+          
+        
+         
+    </div>
+     <div>
+          <button type="submit" name="submit" value = "" >Submit</button>
+     </div>
+ </form>
+ {% endblock %}	
+  

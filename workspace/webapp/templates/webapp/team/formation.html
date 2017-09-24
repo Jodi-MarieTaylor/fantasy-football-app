@@ -1,0 +1,57 @@
+{%extends "webapp/header.html" %}
+ {% block content %}
+ <h4>Select Formation</h4>
+<p> Step 2</p>
+
+<style>
+     img {
+    width:100%;
+    height: 230px;
+}
+</style>
+<div style = "margin:0 auto;">
+<p>Now its time to create your team! Lets begin with the formation</p>
+
+ <div class="row"  >
+ <div class="col-md-3 col-xs-6 col-md-offset-1">
+   <img class="img-responsive" src="/static/webapp/IMG-20170313-WA0001.jpg" style="max-width:100%;" />
+   <p>Formation 1</p>
+   <p>MidFielders: 3 Defenders: 4 Strikers: 3</p>
+ </div>
+ <div class="col-md-3 col-xs-6">
+   <img class="img-responsive"src="/static/webapp/IMG-20170313-WA0001.jpg"  style="max-width: 100%;"/>
+   <p>Formation 2</p>
+   <p>MidFielders: 4 Defenders: 4 Stikers: 2</p>
+ </div>
+
+ <div class="col-md-3 col-xs-6">
+   <img class="img-responsive" src="/static/webapp/IMG-20170313-WA0001.jpg"  style="max-width: 100%;" />
+    <p>Formation 3</p>
+    <p>MidFielders: 4 Defenders: 5 Strikers: 1</p>
+ </div>
+
+</div>
+
+<form action= "/team/formation/" method="post">
+
+<input type=hidden name =user_id value = {{user_id}}>
+  {% csrf_token %}
+    
+  {% load bootstrap %}
+
+<div style="width: 10%; "/>
+
+        {{ form|bootstrap }}
+ <button type="submit" name="btnform1">Next</button>
+</div>
+</form>
+</div>
+ {% endblock %}
+ <div class="form-group">
+  <label for="formation">Select Formation:</label>
+  <select class="form-control" id="formation" name="formation">
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+  </select>
+</div>

@@ -1,0 +1,22 @@
+{%extends "webapp/header.html" %}
+ {% block content %}
+ 
+
+
+<div>
+    <p>The transfer was successful</p>
+    
+    <form action= "/team/player/transfer/" method="post">
+           <input type=hidden name =user_id value = "{{user_id}}">
+              {% csrf_token %}
+          <button type="submit" value = "{{user.id}}" class="btn btn-primary"> Transfer More Players</button>
+     </form>
+      <form action= "/user/home" method="post">
+           <input type=hidden name =user_id value = "{{user_id}}">
+              {% csrf_token %}
+          <button type="submit" value = "{{user.id}}" class="btn btn-primary"> Home</button>
+     </form>
+</div>
+</div>
+ {% endblock %}	
+  

@@ -1,0 +1,65 @@
+{%extends "webapp/header.html" %}
+ {% block content %}
+ 
+ <style>
+     .container {
+   position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+ </style>
+ <h4>Personal Information</h4>
+ 
+ <h5>Step 1 </h5>
+ <div class = "container" >
+    <br>
+    <br>
+    <br>
+    <br>
+    <p>Please enter your details below:</p>
+    <br>
+<form action= "/user/create/" method="post">
+   {% csrf_token %}
+    
+  {% load bootstrap %}
+
+{{ form|bootstrap }}
+ <button type="submit" name="btnform1">Next</button>
+ 
+  {% endblock %}	
+  
+     <div class="form-group">
+        <label for="username"> Name</label>
+        <input type="text" class="form-control" id="name" placeholder="Enter Name">
+     </div>
+    <div class="form-group">
+        <label for="username">User Name</label>
+        <input type="text" class="form-control" id="username" placeholder="Enter User Name">
+     </div>
+ 
+ 
+
+ 
+  <div class="form-group">
+    <label for="email">Email address</label>
+    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+
+ 
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" id="password" placeholder="Password">
+  </div>
+  
+     <div class="form-group">
+    <label for="exampleInputFile">Select your profile picture</label>
+    <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+    <small id="fileHelp" class="form-text text-muted">Select an image</small>
+  </div>
+   <button type="submit" class="btn btn-primary">Submit</button>
+  
+  </div>
+  
+  </form>
